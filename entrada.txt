@@ -1,0 +1,8 @@
+letra letraA = A
+letra letraB = B
+
+si ( letraA == letraB )
+    devuelve verdadero
+si_no
+    devuelve falso
+
