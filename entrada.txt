@@ -1,7 +1,7 @@
-letra letraA = A
-letra letraB = B
+letra letra_1 = a
+letra letra_2 = b
 
-si ( letraA == letraB )
+si ( letra_1 == letra_2 )
     devuelve verdadero
 si_no
     devuelve falso

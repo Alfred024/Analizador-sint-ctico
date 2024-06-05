@@ -2,11 +2,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+// P1: No está leyendo toda la entrada, osea, el último caracter lo ignora
+
 public class main {
     public static void main(String[] args) {
 
 
-        String filePath = "./entrada.txt"; 
+        String filePath = "./prueba.txt"; 
         String matrixFilePath = "./matriz-estados.txt"; 
         ReadFiles readFiles = new ReadFiles();
 
@@ -40,7 +42,6 @@ public class main {
             while ((line = reader.readLine()) != null) {
                 for (int column = 0; column < line.length(); column++) {
                     String actualChar = line.charAt(column)+"";
-
                     // Se reemplazó la E por el valor literal de " " ya que JAVA omitía el espacio en blanco asignado a actualChar
                     if(actualChar.equals(" ")){
                         actualChar = "E";
@@ -48,7 +49,6 @@ public class main {
                     while (!matrix[0][indexLetra].equals(actualChar)) {
                         indexLetra++;
                     }
-
                     // Se ha encontrado un token
                     if(!matrix[indexEstado][indexLetra].equals("-1") && isFinalState(matrix[indexEstado][indexLetra])){
                         tokens += matrix[indexEstado][indexLetra]+" ";
@@ -65,13 +65,13 @@ public class main {
                             // Debe continuar leyendo los caracteres
                             String indexEstadoSearched = matrix[indexEstado][indexLetra];
                             indexEstado = findRealStateIndex(indexEstadoSearched, matrix);
-                            System.out.println("Busqueda del siguiente estado\nValor:"+indexEstado);
+                            // System.out.println("Busqueda del siguiente estado\nValor:"+indexEstado);
                         }
                     }
                     indexLetra = 1;
 
-                    System.out.println("Valor actual de los tokens: "+tokens);
                 }
+                tokens += "\n";
             }
             reader.close();
             if(tokens.length() == 0) return "0";

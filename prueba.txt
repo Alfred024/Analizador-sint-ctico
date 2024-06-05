@@ -1,2 +1,7 @@
-letra 
+letra letra_2 = b 
+letra letra_1 = a 
+si ( letra_1 == letra_2 ) 
+    devuelve verdadero 
+si_no
+    devuelve falso -
 
