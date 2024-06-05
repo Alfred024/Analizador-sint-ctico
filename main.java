@@ -39,14 +39,16 @@ public class main {
 
             while ((line = reader.readLine()) != null) {
                 for (int column = 0; column < line.length(); column++) {
-                    System.out.println("Vuelta #"+column);
                     String actualChar = line.charAt(column)+"";
-                    System.out.println("-"+actualChar+"-");
+
+                    // Se reemplazó la E por el valor literal de " " ya que JAVA omitía el espacio en blanco asignado a actualChar
+                    if(actualChar.equals(" ")){
+                        actualChar = "E";
+                    }
                     while (!matrix[0][indexLetra].equals(actualChar)) {
-                        System.out.println(matrix[0][indexLetra]+" es diferente a "+actualChar); // Hace la comparación 
                         indexLetra++;
                     }
-                    System.out.println("EL estado al que se apunta es: "+matrix[indexEstado][indexLetra]);
+
                     // Se ha encontrado un token
                     if(!matrix[indexEstado][indexLetra].equals("-1") && isFinalState(matrix[indexEstado][indexLetra])){
                         tokens += matrix[indexEstado][indexLetra]+" ";
@@ -82,7 +84,7 @@ public class main {
 
     public static boolean isFinalState(String value){
         int numValue = Integer.valueOf(value);
-        return numValue % 5 != 0 && numValue >= 1000 ;
+        return numValue % 5 == 0 && numValue >= 1000 ;
     }
 
     public static int findRealStateIndex(String indexSearched, String matrix[][]){
