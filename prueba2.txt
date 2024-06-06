@@ -1,7 +1,7 @@
-letra letra_2 = b 
+numero n.umero_2 = 307.1 
 letra letra_1 = a 
 si ( letra_1 == letra_2 ) 
     devuelve verdadero 
 si_no
-    devuelve falso -
+    devuelve falso 
 

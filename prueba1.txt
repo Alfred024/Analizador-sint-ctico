@@ -2,7 +2,7 @@ letra letra_1 = a
 letra letra_2 = b
 
 si ( letra_1 == letra_2 )
-    devuelve verdadero
+    devuelve verdadero 
 si_no
     devuelve falso
 

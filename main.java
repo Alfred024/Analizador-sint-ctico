@@ -1,14 +1,14 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 // P1: No está leyendo toda la entrada, osea, el último caracter lo ignora
 
 public class main {
     public static void main(String[] args) {
 
-
-        String filePath = "./prueba.txt"; 
+        String filePath = "./prueba2.txt"; 
         String matrixFilePath = "./matriz-estados.txt"; 
         ReadFiles readFiles = new ReadFiles();
 
@@ -21,6 +21,10 @@ public class main {
             //     System.out.println();
             // }
             String res = tokensString(filePath, matrix);
+            //#3 Escribir los correos válidos en un archivo 
+            PrintWriter writer = new PrintWriter("tokens.out");
+            writer.println(res);
+            writer.close();
             System.out.println(res);
         } catch (Exception e) {
             System.out.println("Error reading the file: ");
